@@ -1,0 +1,28 @@
+{
+  "name": "github-users",
+  "version": "1.0.0",
+  "description": "Test assignment for Shaw & Partners",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd server && yarn run server\" \"cd client && yarn start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lomm28/github-users-app.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "express",
+    "github api"
+  ],
+  "author": "Dmytro Danko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lomm28/github-users-app/issues"
+  },
+  "homepage": "https://github.com/lomm28/github-users-app#readme",
+  "dependencies": {
+    "express-handlebars": "^3.1.0"
+  }
+}

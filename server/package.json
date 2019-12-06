@@ -1,0 +1,35 @@
+{
+  "name": "github-users-server",
+  "version": "1.0.0",
+  "description": "Express server for github-users app",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "lint:fix": "eslint --fix .",
+    "lint:server": "eslint --ignore-path .gitignore -f table --ext .js ."
+  },
+  "keywords": [
+    "node",
+    "express",
+    "github api"
+  ],
+  "author": "Dmytro Danko",
+  "license": "ISC",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.7.2",
+    "nodemon": "^2.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "flatted": "^2.0.1",
+    "github-api": "^3.3.0",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0"
+  }
+}
