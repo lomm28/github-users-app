@@ -5,14 +5,13 @@ const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const crypto = require('crypto');
 const passport = require('passport');
-const githubStrategy = require('./middlewares/githubStrategy');
-const exphbs = require('express-handlebars');
+const githubStrategy = require('./lib/middlewares/githubStrategy');
 
-const { env, port } = require('./config');
+const { env, port } = require('./lib/config');
 
 const app = express();
 
-app.use(cors({ origin: null }));
+app.use(cors());
 
 passport.use(githubStrategy);
 
@@ -36,23 +35,14 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// const hbs = exphbs.create({
-// 	layoutsDir: __dirname + '/views'
-// });
-
-// app.engine('handlebars', hbs.engine)
-// app.set('views', __dirname + '/views')
-// app.set('view engine', 'handlebars')
-
-require('./routes/proxy')(app);
-require('./routes/auth')(app);
+require('./lib/routes/proxy')(app);
 
 if (env === 'production') {
-	app.use(express.static('client/build'));
-	const path = require('path');
-	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	});
+  app.use(express.static('client/build'));
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 const PORT = port || 5000;
