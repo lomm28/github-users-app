@@ -4,7 +4,7 @@
   "description": "Test assignment for Shaw & Partners",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "server": "nodemon index.js",
     "lint:fix": "eslint --fix .",
     "lint:server": "eslint --ignore-path .gitignore -f table --ext .js .",
