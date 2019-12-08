@@ -4,23 +4,12 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const crypto = require('crypto');
-const passport = require('passport');
-const githubStrategy = require('./lib/middlewares/githubStrategy');
 
 const { env, port } = require('./lib/config');
 
 const app = express();
 
 app.use(cors());
-
-passport.use(githubStrategy);
-
-passport.serializeUser((user, done) => done(null, user));
-
-passport.deserializeUser((obj, done) => done(null, obj));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(cookieParser());
 app.use(
