@@ -1,7 +1,9 @@
-import { 
-  getAllGithubUsers, 
-  getGithubUserRepos, 
-  getGithubUserDetails 
+/* eslint-disable consistent-return */
+
+import {
+  getAllGithubUsers,
+  getGithubUserRepos,
+  getGithubUserDetails,
 } from '../../services/network';
 
 const loadUsers = async (dispatch, state) => {
@@ -40,9 +42,4 @@ const loadUserRepos = async (dispatch, username) => {
   }
 };
 
-export { 
-  loadUsers,
-  loadUserDetails,
-  loadUserRepos
-};
-
+export { loadUsers, loadUserDetails, loadUserRepos };

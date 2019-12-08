@@ -1,26 +1,42 @@
 import React from 'react';
-import { Modal } from 'antd';
+import { Modal, Spin } from 'antd';
+import { bool, func, element, string } from 'prop-types';
+
 import withBodyElem from './hoc/withBodyElem';
 
-const AntModal = ({ 
-  visible, 
-  handleOk, 
-  handleCancel,
-  children,
-  title,
-}) => {
+const styles = {
+  spinner: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+};
+
+const AntModal = ({ visible, handleOk, children, title, isLoading }) => {
   return (
     <Modal
       title={title}
       visible={visible}
       onOk={handleOk}
+      onCancel={handleOk}
       destroyOnClose
       width={700}
-      onCancel={handleCancel}
     >
-      {children}
+      {visible && isLoading ? (
+        <Spin size="large" style={styles.spinner} />
+      ) : (
+        children
+      )}
     </Modal>
   );
+};
+
+AntModal.propTypes = {
+  visible: bool.isRequired,
+  handleOk: func.isRequired,
+  children: element.isRequired,
+  title: string.isRequired,
+  isLoading: bool.isRequired,
 };
 
 export default withBodyElem(AntModal);

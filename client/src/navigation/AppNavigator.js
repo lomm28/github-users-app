@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Dashboard from '../components/Dashboard';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Dashboard from '../containers/Dashboard';
 
 const AppNavigator = () => (
   <BrowserRouter>

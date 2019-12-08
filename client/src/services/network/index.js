@@ -12,8 +12,4 @@ const getGithubUserRepos = username => {
   return api.get(`/api/users/${username}/repos`);
 };
 
-export { 
-  getAllGithubUsers, 
-  getGithubUserDetails, 
-  getGithubUserRepos, 
-};
+export { getAllGithubUsers, getGithubUserDetails, getGithubUserRepos };
