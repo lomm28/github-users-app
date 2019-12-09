@@ -8,6 +8,7 @@
   "parserOptions": {
     "ecmaVersion": 2018
   },
+  "ignorePatterns": ["client/", "node_modules/"],
   "rules": {
     "indent": [
       "error",
